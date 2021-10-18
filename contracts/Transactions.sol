@@ -16,18 +16,26 @@ contract Transactions{
 
     event TaxPaid(address _who, uint taxBefore, uint taxAfter);
 
-    modifier OnlyVerified() {
+    modifier OnlyVerified(){
         require(kyc.getKYC(msg.sender), "Not verified yet");
-    _;
+        _;
     }
 
     receive() external payable OnlyVerified{
         tokenBalance[msg.sender] += msg.value;
     }
 
-    function payTax() public payable {
-
-        emit TaxPaid(msg.sender, msg.value);
-
+    function payTax(uint amount) public OnlyVerified{
+        require(tokenBalance[msg.sender] >= amount, "Insufficient tokens in account");
+        
+        uint taxBefore = taxPaid[msg.sender];
+        tokenBalance[msg.sender] -= amount;
+        taxPaid[msg.sender] += amount;
+        uint taxAfter = taxPaid[msg.sender];
+        
+        address payable govtAddress = payable(govt.govtAddress());
+        govtAddress.transfer(amount);
+        
+        emit TaxPaid(msg.sender, taxBefore, taxAfter);
     }
 }
