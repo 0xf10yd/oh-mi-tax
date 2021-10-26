@@ -124,7 +124,7 @@ export default function Citizen({ web3 }) {
         <div className=''>
 
             <NavigationBar></NavigationBar>
-            <Header heading='Citizen: Rohan Singh'></Header>
+            <Header heading='Citizen: X'></Header>
             <Container>
                 <Row>
                     <PurchaseTokens web3={web3}></PurchaseTokens>
