@@ -68,7 +68,6 @@ export default function Citizen({ web3 }) {
                                     'Error writing document: ',
                                     error
                                 );
-                                // setError('Error writing document:');
                             });
                     });
             });
@@ -98,8 +97,7 @@ export default function Citizen({ web3 }) {
         let data = []
         await db.collection("tax-payments").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
+        
                 data.push(doc.data())
             });
         });
@@ -110,8 +108,7 @@ export default function Citizen({ web3 }) {
         let data = []
         await db.collection("allot-funds").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
+  
                 data.push(doc.data())
             });
         });
