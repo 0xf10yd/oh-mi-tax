@@ -1,0 +1,17 @@
+{
+    "name": "kemetcoin",
+    "version": "1.0.0",
+    "description": "Simple demo blockchain cryptocurrency",
+    "main": "index.js",
+    "scripts": {
+        "dev": "tsc -w",
+        "start": "tsc && node ."
+    },
+    "keywords": [],
+    "author": "0xf10yd",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^15.6.0",
+        "typescript": "^4.2.4"
+    }
+}
