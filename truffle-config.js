@@ -1,6 +1,5 @@
 const path = require('path');
 const HDWalletProvider = require('truffle-hdwallet-provider');
-
 // clint : src : contracts 
 
 // Truffle configuration
